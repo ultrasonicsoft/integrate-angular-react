@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'ng-login',
@@ -7,14 +7,21 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Native
 })
 export class LoginComponent {
+  @Input() username = '';
+  @Input() password = '';
 
-  userName;
-  password;
+  @Output('login') login = new EventEmitter<any>();
+
   constructor() { }
 
-  
-  doLogin(){
-    alert(`username: ${this.userName} password: ${this.password}`);
+  doLogin() {
+    let user = {
+      "username": this.username,
+      "password": this.password
+    };
+    this.login.emit(user)
+    console.log('emitting event');
+
   }
 
 }

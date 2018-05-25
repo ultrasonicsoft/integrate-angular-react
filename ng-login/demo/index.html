@@ -2,10 +2,20 @@
 
 <head>
     <link rel="stylesheet" href="styles.css">
+
+    <script>
+        function handleLogin(data){
+            alert('event handled');
+        }
+    </script>
+
 </head>
 
 <body>
-    <ng-login></ng-login>
+    <ng-login username='default' password='test'></ng-login>
+    
+    <!-- <ng-login username='default' password='test' loginClicked="handleLogin($event)"></ng-login> -->
+
     <script type="text/javascript" src="runtime.js"></script>
     <script type="text/javascript" src="polyfills.js"></script>
     <script type="text/javascript" src="main.js"></script>

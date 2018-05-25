@@ -1,1 +1,9 @@
-<ng-login></ng-login>
+<script>
+    function testClicked(){
+        alert('testing...')
+    }
+</script>
+
+<ng-login username='default' password='test' login="testClicked()"></ng-login>
+
+<button onclick="testClicked()">Test</button>
