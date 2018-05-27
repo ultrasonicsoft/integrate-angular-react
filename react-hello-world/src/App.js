@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
   constructor(props){
     super(props)
     this.state = {username:'default-username', password:'default-password'}
@@ -13,12 +14,9 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    // Make sure to remove the DOM listener when the component is unmounted.
     this.nv.removeEventListener("login", this.handleNvEnter);
   }
 
-  // Use a class arrow function (ES7) for the handler. In ES6 you could bind()
-  // a handler in the constructor.
   handleNvEnter = (event) => {
     this.setState({ username: event.detail.username, password: event.detail.password })
   }
@@ -28,11 +26,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to React + Angular Component Integration Demo</h1>
         </header>
 
-        <ng-login ref={elem => this.nv = elem} username={this.state.username} password={this.state.password}></ng-login>
-
+          <ng-login ref={elem => this.nv = elem} username={this.state.username} password={this.state.password}></ng-login>
+          <br/>
+          <h3>React.js - Output</h3>
           <div>
             User Name: {this.state.username}
           </div>

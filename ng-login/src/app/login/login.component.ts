@@ -21,7 +21,5 @@ export class LoginComponent {
     };
     this.login.emit(user)
     console.log('emitting event');
-
   }
-
 }
